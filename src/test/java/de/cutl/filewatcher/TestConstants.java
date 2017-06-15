@@ -1,6 +1,6 @@
 package de.cutl.filewatcher;
 
-public class Constants {
+public class TestConstants {
 
     public static String TEST_DIR = "target";
 }

@@ -10,9 +10,9 @@ public class Config {
     Properties prop = new Properties();
     InputStream input = null;
 
-    public final Path pathToCount;
-    public final Path logFile;
-    public final int limitForMail;
+    private final Path pathToCount;
+    private final Path logFile;
+    private final int limitForMail;
 
     public Config(Path propertyFile) throws IOException {
         File configFile = propertyFile.toFile();
@@ -44,5 +44,17 @@ public class Config {
         }
         final int integer = Integer.parseInt(propValue);
         return integer;
+    }
+
+    public Path getPathToCount() {
+        return pathToCount;
+    }
+
+    public Path getLogFile() {
+        return logFile;
+    }
+
+    public int getLimitForMail() {
+        return limitForMail;
     }
 }

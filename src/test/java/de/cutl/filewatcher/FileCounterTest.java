@@ -9,7 +9,6 @@ import org.junit.rules.TemporaryFolder;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,7 +18,7 @@ public class FileCounterTest extends TestCase {
 
 
     @Rule
-    public TemporaryFolder TEST_DIR = new TemporaryFolder(new File(Constants.TEST_DIR));
+    public TemporaryFolder TEST_DIR = new TemporaryFolder(new File(TestConstants.TEST_DIR));
 
     private FileCounter cut;
 

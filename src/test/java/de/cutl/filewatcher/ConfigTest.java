@@ -21,11 +21,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ConfigTest extends TestCase {
 
     @Rule
-    public TemporaryFolder TEST_DIR = new TemporaryFolder(new File(Constants.TEST_DIR));
+    public TemporaryFolder TEST_DIR = new TemporaryFolder(new File(TestConstants.TEST_DIR));
 
-    public static final Path MISSING_CONFIG = Paths.get(Constants.TEST_DIR, "missing.prop");
+    public static final Path MISSING_CONFIG = Paths.get(TestConstants.TEST_DIR, "missing.prop");
     public static final Path EXAMPLE_CONFIG = Paths.get("example_config.prop");
-    public static final Path CONFIG = Paths.get(Constants.TEST_DIR, "config.prop");
+    public static final Path CONFIG = Paths.get(TestConstants.TEST_DIR, "config.prop");
 
     private FileCounter cut;
 
