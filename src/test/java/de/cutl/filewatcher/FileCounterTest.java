@@ -19,7 +19,7 @@ public class FileCounterTest extends TestCase {
 
 
     @Rule
-    public TemporaryFolder TEST_DIR = new TemporaryFolder(new File("target"));
+    public TemporaryFolder TEST_DIR = new TemporaryFolder(new File(Constants.TEST_DIR));
 
     private FileCounter cut;
 
@@ -32,7 +32,7 @@ public class FileCounterTest extends TestCase {
 
     @After
     public void tearDown() {
-        //TEST_DIR.delete();
+        TEST_DIR.delete();
     }
 
 
