@@ -1,3 +1,5 @@
+:toc:
+
 
 # Einführung und Ziele
 
@@ -15,6 +17,7 @@ konfiguriert soll irgendwas passieren (Mail schicken).
 
 # Randbedingungen
 
+* Java 8 wird verwendet
 * Schnittstelle zu anderem Programm nur auf Dateisystem.
 * Es wird erwartet das gleichmäßig mind. x Datein pro y min
   dazu kommen.
@@ -23,7 +26,7 @@ konfiguriert soll irgendwas passieren (Mail schicken).
 
 * Windows Server
 * Java wird sowieso schon eingesetzt
-* Timing über Aufgabenplanung steuern
+* Timing über Windows-Aufgabenplanung steuern
 
 # Lösungsstrategie
 
@@ -45,5 +48,7 @@ konfiguriert soll irgendwas passieren (Mail schicken).
 # Qualitätsszenarien
 
 # Risiken & technische Schulden
+
+* Es könnte sein das nicht überall Java 8 zur Verfügung steht, aber das wird billigend in kauf genommen, da man es einfach installieren kann.
 
 # Glossar
