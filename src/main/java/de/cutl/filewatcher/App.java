@@ -21,10 +21,14 @@ public class App
         Controller ctr = new Controller(config, fc);
 
         File logFile = config.getLogFile().toFile();
+        int lastCount = ctr.readLastValueFileCount();
+
         File pathToCount = config.getPathToCount().toFile();
         int fileCount = fc.count(pathToCount);
         ctr.appendToLogFile(LocalDateTime.now(), fileCount);
 
-        System.out.println("Ergebnis geschrieben: " + logFile.getAbsolutePath());
+        int countDiff = lastCount - fileCount;
+
+        System.out.println("Ergebnis geschrieben: " + logFile.getAbsolutePath() + " - neue Dateien: " + countDiff);
     }
 }

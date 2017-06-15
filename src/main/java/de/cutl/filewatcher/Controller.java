@@ -1,10 +1,6 @@
 package de.cutl.filewatcher;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Paths;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -41,5 +37,32 @@ public class Controller {
             //exception handling left as an exercise for the reader
             e.printStackTrace();
         }
+    }
+
+    public int readLastValueFileCount() {
+        BufferedReader br = null;
+        String lastLine = null;
+        try {
+            String sCurrentLine;
+            br = new BufferedReader(new FileReader(config.getLogFile().toFile()));
+
+            while ((sCurrentLine = br.readLine()) != null) {
+                //System.out.println(sCurrentLine);
+                lastLine=sCurrentLine;
+            }
+        } catch (IOException e) {
+            //e.printStackTrace();
+        } finally {
+            try {
+                if (br != null)br.close();
+            } catch (IOException ex) {
+                //ex.printStackTrace();
+            }
+        }
+
+        if (lastLine == null) {
+            return 0;
+        }
+        return Integer.parseInt(lastLine.split("=")[1].trim());
     }
 }
