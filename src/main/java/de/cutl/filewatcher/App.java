@@ -19,6 +19,7 @@ public class App
         Config config = new Config(Paths.get(args[0]));
         FileCounter fc = new FileCounter();
         Controller ctr = new Controller(config, fc);
+        Mailer mailer = new Mailer();
 
         File logFile = config.getLogFile().toFile();
         int lastCount = ctr.readLastValueFileCount();
@@ -30,5 +31,10 @@ public class App
         int countDiff = lastCount - fileCount;
 
         System.out.println("Ergebnis geschrieben: " + logFile.getAbsolutePath() + " - neue Dateien: " + countDiff);
+
+        if (countDiff < config.getLimitForMail()) {
+            mailer.sendMail(config, countDiff);
+            System.out.println("Limit unterschritten -> mail geschickt");
+        }
     }
 }

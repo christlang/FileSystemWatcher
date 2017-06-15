@@ -44,6 +44,19 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- Make this jar executable -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -52,6 +65,7 @@
                     <archive>
                         <manifest>
                             <!-- Jar file entry point -->
+                            <addClasspath>true</addClasspath>
                             <mainClass>de.cutl.filewatcher.App</mainClass>
                         </manifest>
                     </archive>
