@@ -60,6 +60,11 @@ public class ConfigTest extends TestCase {
         prop.setProperty("pathToCount", "tmp");
         prop.setProperty("logFile", "test.txt");
         prop.setProperty("limitForMail", "5");
+        prop.setProperty("emailUsername", "abc");
+        prop.setProperty("emailPassword", "geheim");
+        prop.setProperty("emailReceivers", "abc@de.de, def@de.com");
+        prop.setProperty("emailSubject", "testSubject");
+        prop.setProperty("emailText", "test text\nwith variable %d");
 
         // save properties to project root folder
         prop.store(output, null);

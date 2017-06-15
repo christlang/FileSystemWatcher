@@ -1,3 +1,9 @@
 pathToCount = target
 logFile = target/example.log
 limitForMail = 5
+
+emailUsername = test@abc.de
+emailPassword = secret
+emailReceivers = Christian.Lange@posteo.de, der.lange.christian@gmail.com
+emailSubject = TestSubject %d
+emailText = Text with some \nlinebreaks\n and a variable: %d\n kind regards
