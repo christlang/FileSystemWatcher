@@ -1,0 +1,44 @@
+
+# Einführung und Ziele
+
+Das Programm soll den automatischen Export von einem
+anderen Programm überwachen.
+
+Möglichst einfaches Script das Dateien in Verzeichnis
+zählt und wenn weniger neue Dateien dazukommen, als
+konfiguriert soll irgendwas passieren (Mail schicken).
+
+# Randbedingungen
+
+* Schnittstelle zu anderem Programm nur auf Dateisystem.
+* Es wird erwartet das gleichmäßig mind. x Datein pro y min
+  dazu kommen.
+
+# Kontext
+
+* Windows Server
+* Java wird sowieso schon eingesetzt
+* Timing über Aufgabenplanung steuern
+
+# Lösungsstrategie
+
+* TDD
+* KISS
+* arc42
+* keine UI
+
+# Bausteinsicht
+
+# Laufzeitsicht
+
+# Verteilungssicht
+
+# Querschnittliche Konzepte
+
+# Entwurfsentscheidungen
+
+# Qualitätsszenarien
+
+# Risiken & technische Schulden
+
+# Glossar
