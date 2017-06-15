@@ -20,6 +20,7 @@ public class ControllerTest extends TestCase {
     @Test
     public void testAppendToLogFileEmpty() throws IOException {
         Path exampleLog = Paths.get("target", "example.log");
+        exampleLog.toFile().delete(); // delete previous files if not done right.
         exampleLog.toFile().deleteOnExit();
 
         Config config = mock(Config.class);

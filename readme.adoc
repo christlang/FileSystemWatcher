@@ -8,6 +8,11 @@ Möglichst einfaches Script das Dateien in Verzeichnis
 zählt und wenn weniger neue Dateien dazukommen, als
 konfiguriert soll irgendwas passieren (Mail schicken).
 
+## wichtige Befehle
+
+* `mvn verify`
+* `java -jar target/filesystemwatcher-1.0-SNAPSHOT.jar example_config.prop`
+
 # Randbedingungen
 
 * Schnittstelle zu anderem Programm nur auf Dateisystem.

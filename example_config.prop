@@ -1,3 +1,3 @@
-pathToCount = "target"
-logFile = "target/example.log"
+pathToCount = target
+logFile = target/example.log
 limitForMail = 5
