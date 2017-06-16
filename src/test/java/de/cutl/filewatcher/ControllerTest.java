@@ -10,14 +10,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 
 public class ControllerTest extends TestCase {
 
     private Path exampleLog;
     private Controller cut;
+    private Config config;
+
+    private static final int MAIL_LIMIT = 5;
 
     @Before
     public void setUp() throws IOException {
@@ -25,8 +28,9 @@ public class ControllerTest extends TestCase {
         exampleLog.toFile().delete(); // delete previous files if not done right.
         exampleLog.toFile().deleteOnExit();
 
-        Config config = mock(Config.class);
+        config = mock(Config.class);
         when(config.getLogFile()).thenReturn(exampleLog);
+        when(config.getLimitForMail()).thenReturn(MAIL_LIMIT);
         cut = new Controller(config, null);
     }
 
@@ -84,6 +88,28 @@ public class ControllerTest extends TestCase {
         int count = cut.readLastValueFileCount();
 
         assertEquals(3, count);
+    }
+
+    @Test
+    public void testWriteMailIfLimitIsReachedLimitNotReached() {
+        int counter = MAIL_LIMIT + 1;
+
+        Mailer mailer = mock(Mailer.class);
+
+        cut.writeMailIfLimitIsReached(counter, mailer);
+
+        verify(mailer, times(0)).sendMail(config, counter);
+    }
+
+    @Test
+    public void testWriteMailIfLimitIsReachedLimitReached() {
+        int counter = MAIL_LIMIT - 1;
+
+        Mailer mailer = mock(Mailer.class);
+
+        cut.writeMailIfLimitIsReached(counter, mailer);
+
+        verify(mailer, times(1)).sendMail(config, counter);
     }
 }
 

@@ -2,3 +2,4 @@
 target/
 FileSystemWatcher.iml
 dependency-reduced-pom.xml
+filesystemwatcher.iml

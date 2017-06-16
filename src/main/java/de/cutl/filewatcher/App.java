@@ -25,16 +25,12 @@ public class App
         int lastCount = ctr.readLastValueFileCount();
 
         File pathToCount = config.getPathToCount().toFile();
-        int fileCount = fc.count(pathToCount);
-        ctr.appendToLogFile(LocalDateTime.now(), fileCount);
+        int currentCount = fc.count(pathToCount);
+        ctr.appendToLogFile(LocalDateTime.now(), currentCount);
 
-        int countDiff = lastCount - fileCount;
-
+        int countDiff = currentCount - lastCount;
         System.out.println("Ergebnis geschrieben: " + logFile.getAbsolutePath() + " - neue Dateien: " + countDiff);
 
-        if (countDiff < config.getLimitForMail()) {
-            mailer.sendMail(config, countDiff);
-            System.out.println("Limit unterschritten -> mail geschickt");
-        }
+        ctr.writeMailIfLimitIsReached(countDiff, mailer);
     }
 }

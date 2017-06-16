@@ -65,4 +65,12 @@ public class Controller {
         }
         return Integer.parseInt(lastLine.split("=")[1].trim());
     }
+
+    public void writeMailIfLimitIsReached(int countDiff, Mailer mailer) {
+
+        if (countDiff < config.getLimitForMail()) {
+            mailer.sendMail(config, countDiff);
+            System.out.println("Limit unterschritten -> mail geschickt");
+        }
+    }
 }
